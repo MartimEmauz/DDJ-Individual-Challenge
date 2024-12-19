@@ -22,6 +22,7 @@ var is_attacking = false
 signal player_attack(damage, range)
 signal level_up(level)
 signal increase_health(value)
+signal collect_xp(amount)
 
 func _physics_process(delta: float) -> void:
 	# Define a direção do player.
@@ -89,6 +90,7 @@ func attack():
 func _on_collect_xp(amount):
 	total_xp += amount
 	print("Collected XP: ", amount, " | Total XP: ", total_xp)
+	collect_xp.emit(total_xp)
 	experience_bar.value = total_xp
 	check_level_up()
 	
