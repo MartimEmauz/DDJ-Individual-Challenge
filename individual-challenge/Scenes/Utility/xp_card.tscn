@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://baxc8rvkoa676"]
+
+[ext_resource type="Texture2D" uid="uid://b0vuea53ceh0h" path="res://Sprites/Animated Objects/Card.png" id="1_7gi45"]
+[ext_resource type="Script" path="res://Scripts/Utility/xp_card.gd" id="1_e8og1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu74i"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpx8o"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rh3x"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14lvy"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqca0"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs77f"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phra6"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64xm0"]
+atlas = ExtResource("1_7gi45")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_umcr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu74i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpx8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rh3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14lvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqca0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hs77f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phra6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64xm0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_75b6b"]
+radius = 12.0
+height = 24.0
+
+[node name="xp_card" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_e8og1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_umcr0")
+autoplay = "default"
+frame_progress = 0.419595
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_75b6b")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

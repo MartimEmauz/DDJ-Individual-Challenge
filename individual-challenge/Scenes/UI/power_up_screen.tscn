@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2nsvvinl0twe"]
+
+[ext_resource type="Script" path="res://Scripts/UI/power_up_screen.gd" id="1_ega53"]
+
+[node name="PowerUpScreen" type="CanvasLayer"]
+process_mode = 2
+script = ExtResource("1_ega53")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.5
+offset_top = -34.0
+offset_right = 219.5
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="Button" parent="HBoxContainer"]
+z_index = 100
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Health
+"
+
+[node name="Speed" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Speed
+"
+
+[node name="Damage" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Damage"
+
+[node name="Range" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Range
+"
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+offset_right = 6300.0
+offset_bottom = 3600.0
+
+[connection signal="pressed" from="HBoxContainer/Health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="HBoxContainer/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="HBoxContainer/Damage" to="." method="_on_damage_pressed"]
+[connection signal="pressed" from="HBoxContainer/Range" to="." method="_on_range_pressed"]
